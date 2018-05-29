@@ -1,0 +1,168 @@
+
+/* Set main background color */
+html {
+    background-color: #669999;
+}
+
+/* Set body width, margins, padding and background color */
+body {
+    width: 960px;
+    margin: 25px auto 25px;
+    background-color: #fcfcfc;
+    padding: 5px 25px 5px;
+    border-radius: 5px;
+}
+
+/* Set titles font stack */
+h1, h2, h3, h4 {
+    font-family: "Avenir Next Condensed", Avenir, sans-serif;
+}
+
+/* Set subtitles color */
+h2, h3, h4 {
+    color: #666666;
+}
+
+/* Set paragraphs and list items font stack */
+p, li {
+    font-family: "Avenir Next", Avenir, sans-serif;
+}
+
+/* Set navbar appearance */
+.nav ul {
+    list-style-type: none;
+    margin-left: -25px;
+    margin-right: -25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow: hidden;
+    background-color: #555555;
+}
+
+/* Position menu items to left */
+.nav li {
+    float: left;
+}
+
+/* Set navbar link appearance */
+.nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    width: 85px;
+}
+
+/* Pull homepage link of navbar right */
+.pull-right {
+    float: right !important;
+}
+
+/* Set navbar active color for home page + Change index navbar link color on hover */
+#index-active, .pull-right:hover {
+    background-color: #666999;
+}
+
+/* Set navbar active color for content + Change content navbar link color on hover */
+#content-active, #nav-content:hover {
+    background-color: #f16529;
+}
+
+/* Set navbar active color for presentation + Change presentation navbar link color on hover */
+#presentation-active, #nav-presentation:hover {
+    background-color: #29a8e0;
+}
+
+/* Set navbar active color for behaviour + Change behaviour navbar link color on hover */
+#behaviour-active, #nav-behaviour:hover {
+    background-color: #8acf17;
+}
+
+/* Set appearance of code blocks */
+.code {
+    background-color: #444444;
+    color: #ffffff;
+    border-radius: 15px;
+    font-family: "PT Mono", Monospaced, monospace;
+    margin: 20px 100px 20px;
+}
+
+/* Set appearance for inline code fragments */
+.inline-code {
+    font-family: "PT Mono", Monospaced, monospace !important;
+}
+
+/* Align home page summary paragraphs and shortcuts */
+.aligned {
+    align-self: center;
+    display: table-cell;
+    padding: 20px;
+}
+
+/* Set text appearance for home page shortcuts */
+.aligned a {
+    text-decoration: none;
+    color: #444444;
+}
+
+/* Set index title color */
+#index-title {
+    color: #666999;
+}
+
+/* Set home page content shortcut hover color and content page title color */
+#content a:hover, #content-title {
+    color: #f16529;
+}
+
+/* Set home page presentation shortcut hover color and presentation page title color */
+#presentation a:hover, #presentation-title {
+    color: #29a8e0;
+}
+
+/* Set home page behaviour shortcut hover color and behaviour page title color */
+#behaviour a:hover, #behaviour-title {
+    color: #8acf17;
+}
+
+/* Center home page '3 pillars' image */
+.center {
+    margin: auto;
+    width: 45%;
+    padding: 10px;
+}
+
+/* Set external link appearance */
+.footer a, a.ext-link {
+    text-decoration: none;
+    color: #666999;
+}
+
+/* Set external link hover appearance */
+.footer a:hover, a.ext-link:hover {
+    color: #444444;
+}
+
+/* Set horizontal rule appearance */
+hr {
+    background-color: #555555;
+    margin-left: -25px;
+    margin-right: -25px;
+    border-style: none;
+    height: 5px;
+}
+
+/* Set appearance of code demo blocks */
+#hover-demo, #changeable, #date-display, #form, #form-output {
+    color: #ffffff;
+    background-color: #666999;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Set hover color for CSS demo block */
+#hover-demo:hover {
+    background-color: #f16529;
+}

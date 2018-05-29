@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Presentation - CSS</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h1 id="presentation-title">The 'Three Pillars' of Web Development</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li class="pull-right">
+                <a href="index.xhtml">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="content.xhtml" id="nav-content" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Content
+                </a>
+            </li>
+            <li id="presentation-active">
+                <a href="presentation.xhtml" id="nav-presentation" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Presentation
+                </a>
+            </li>
+            <li>
+                <a href="behaviour.xhtml" id="nav-behaviour" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Behaviour
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>What is CSS?</h2>
+        <p>
+            CSS, which stands for 'cascading style sheet', is a systematic way of styling HTML markup by way of
+            altering positioning, fonts, colouring, backgrounds, sizing, etc; as well as adding some functionality
+            such as drop-down menus. CSS achieves this by allowing you to assign this information to specific
+            elements/tags or attributes, such as classes or ID's, that are marked in your HTML content files.
+        </p>
+    </div>
+    <div>
+        <h2>How does it work?</h2>
+        <p>
+            CSS works via 'selectors', this is where you an identify an element which you would like to manipulate
+            the presentation of, then define this manipulations inside the 'body' of that selector. For example:
+        </p>
+        <pre class="code">
+            body {
+                min-width: 450px;
+                max-width: 900px;
+                background-colour: #000000;
+                margin: 25px;
+            }
+        </pre>
+        <p>
+            In this example I am manipulating the appearance of an HTML tag, specifically the
+            <span class="inline-code">body</span> tag. I assign a minimum and maximum width, a background color and a
+            margin, which will be applied to the body of every HTML file which implements this style sheet. Any HTML
+            tag such as <span class="inline-code">div</span>, <span class="inline-code">a</span>,
+            <span class="inline-code">p</span>, etc can be accessed in this way by simply writing the tag name followed
+            by a selector body, and this manipulation will be applied to all elements of the selector's type in any
+            HTML file which implements the CSS file. More selective manipulation can be achieved by addressing HTML
+            attributes, as follows:
+        </p>
+        <pre class="code">
+            #myImage {
+                float: right;
+            }
+
+            .table {
+                align-self: center;
+                display: table-cell;
+                padding: 20px;
+            }
+        </pre>
+        <p>
+            In the above example, I am using CSS selectors to alter the appearance of all elements with id
+            <span class="inline-code">myImage</span>, by using the <span class="inline-code">#</span> operator which
+            denotes that an ID is to follow; and all elements of class <span class="inline-code">table</span>, by
+            using the <span class="inline-code">.</span> operator which denotes that a class name is to follow. As a
+            result, my element(s) [no more than one per HTML file as it is an ID] of ID
+            <span class="inline-code">myImage</span> will now be floated to the right, as in removed from normal page
+            flow and floated above other elements to the right side of the screen. Any elements which have class
+            <span class="inline-code">table</span>, will now be displayed as a table-cell view centred on the page,
+            with 20 pixels of padding around each element; this effect would be useful for say, a grid of images. One
+            more key feature to understand is using multiple selectors and pseudo-classes, as follows:
+        </p>
+        <pre class="code">
+            .nav li a {
+                color: #ffffff;
+            }
+
+            .nav li a:hover {
+                color: #000000;
+            }
+        </pre>
+        <p>
+            The first selector here is saying: for all anchor <span class="inline-code">a</span> tags inside list item
+            <span class="inline-code">li</span> tags contained by any element of class
+            <span class="inline-code">nav</span> (a navigation bar in this case), set text color to white (hex value
+            #ffffff). The second selector takes these same items, but uses the pseudo-class
+            <span class="inline-code">:hover</span> to say: IF the mouse hovers over the items selected by this
+            selector, change the text color to black (hex value #000000). This is one way of providing simple
+            functionality / behaviour without JavaScript, and can be used to implement something like a drop-down menu
+            which is shown when the mouse goes over the parent menu. One more way to use classes in selectors could be
+            as follows:
+        </p>
+        <pre class="code">
+            a.highlight {
+                background-color: #ffff00;
+            }
+        </pre>
+        <p>
+            This would say: for all anchor elements <span class="inline-code">a</span> of class
+            <span class="inline-code">highlight</span>, change the background color to yellow
+            (hex value #ffff00). This is different to the selector <span class="inline-code">.highlight a {...}</span>
+            which would instead select any anchor elements contained within another element of class
+            <span class="inline-code">highlight</span>.
+        </p>
+    </div>
+    <div>
+        <h2>In Action</h2>
+        <p>
+            To give a better idea of how CSS markup translates onto the page that is seen, here is an example. First,
+            the HTML markup which I am going to display and then the CSS code which will style it:
+        </p>
+        <pre class="code">
+            &lt;p class="hover-demo"&gt;Hover over me!&lt;/p&gt;
+        </pre>
+        <pre class="code">
+            .hover-demo {
+                color: #ffffff;
+                background-color: #666666;
+                width: 115px;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .hover-demo:hover {
+                background-color: #666999;
+            }
+        </pre>
+        <p>...and now, how this looks on an actual HTML page, after the given CSS styling is applied:</p>
+        <p id="hover-demo">Hover over me!</p>
+    </div>
+    <div>
+        <h2>Summary</h2>
+        <p>
+            This page has only touched on the depth at which CSS can go to, but I hope it has given a good insight
+            into how CSS works and provided enough information for you to start playing around with stylistic
+            manipulation of any HTML markup you have produced. If you'd like to learn about CSS in more depth see
+            <a class="ext-link" href="http://www.w3schools.com/css/default.asp">the tutorials at w3schools.</a>
+            Make sure to validate your CSS code to the version which you are using
+            <a class="ext-link" href="http://jigsaw.w3.org/css-validator/">here.</a>
+        </p>
+    </div>
+    <hr/>
+    <div class="footer">
+        <h4>
+            Website designed and created by Ollie McNally for CSC1026 -
+            see <a href="http://www.ncl.ac.uk/computing/study/module/CSC1026">ncl.ac.uk - CSC1026</a>
+        </h4>
+    </div>
+</body>
+</html>

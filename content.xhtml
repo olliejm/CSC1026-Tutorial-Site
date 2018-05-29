@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Content - HTML</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h1 id="content-title">The 'Three Pillars' of Web Development</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li class="pull-right">
+                <a href="index.xhtml">
+                    Home
+                </a>
+            </li>
+            <li id="content-active">
+                <a href="content.xhtml" id="nav-content" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Content
+                </a>
+            </li>
+            <li>
+                <a href="presentation.xhtml" id="nav-presentation" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Presentation
+                </a>
+            </li>
+            <li>
+                <a href="behaviour.xhtml" id="nav-behaviour" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Behaviour
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>What is HTML?</h2>
+        <p>
+            HTML, which stands for 'hyper-text markup language', is a standardised way of formatting the content of
+            your site. Usually this is text: titles, paragraphs, etc; and images. It essentially provides the
+            'skeleton' of the site and good HTML should be written so that when all styling and behavioural information
+            is removed, the website still displays clearly and in an ordered manner, and is functional. It works on the
+            premise of assigning 'tags' and 'attributes' to the content of your site to indicate its semantics.
+        </p>
+    </div>
+    <div>
+        <h2>How does it work?</h2>
+        <p>
+            HTML consists of elements, which contain content and are defined by attributes (optional) and a tag
+            (required). An HTML element is structured as follows:
+        </p>
+        <pre class="code">
+            &lt;tag attribute1=&quot;value1&quot;&gt;&#39;content&#39;&lt;/tag&gt;
+        </pre>
+        <p>
+            The basic layout of a HTML document follows this format:
+        </p>
+        <pre class="code">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+                &lt;head&gt;
+                    &lt;title&gt;This is a title&lt;/title&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;h1&gt;This is a big heading&lt;/h1&gt;
+                    &lt;p&gt;This is a paragraph&lt;/p&gt;
+                    &lt;h2&gt;This is a smaller heading&lt;/h2&gt;
+                    &lt;img src="this-is-an-image.jpg" alt="alt-text"/&gt;
+                    &lt;p&gt;This is another paragraph&lt;/p&gt;
+                    &lt;a href="website.com"&gt;This is a link&lt;/a&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+        </pre>
+        <p>
+            In the above example, the <span class="inline-code">!DOCTYPE</span> declares to the browser the HTML version
+            being used for the file. This example is using HTML5 which requires no more than <span class="inline-code">
+            !DOCTYPE html</span>, but some earlier HTML versions like HTML4 or XHTML require an additional declaration
+            including a link to the W3C specification for that version.
+        </p>
+        <p>
+            After the declaration of the type, we see the first opening tag <span class="inline-code">html</span>,
+            which declares that HTML content is to follow. This closing <span class="inline-code">/html</span> tag
+            should always be at the end of your document where your code ends. We then declare a
+            <span class="inline-code">head</span> tag; the content of this section does not get displayed on your site,
+            but the <span class="inline-code">title</span> element will appear at the top of the browser window, and
+            you can also declare links to your CSS and JS code here that you would like to be applied to your document.
+            The <span class="inline-code">body</span> tag which follows is where we put the actual content of our site
+            to be displayed; this can be headings, images, paragraphs, videos, etc.
+        </p>
+        <p>
+            There are many more tags available in HTML, but the above examples should be enough to get a grasp of
+            how they are used, which is most important. One other thing we need to cover is attributes, such as
+            <span class="inline-code">class</span> and <span class="inline-code">id</span>. Consider the following
+            example:
+        </p>
+        <pre class="code">
+            &lt;p class=&quot;code&quot;&gt;
+                public void toString() {
+                    return this.name;
+                }
+            &lt;/p&gt;
+
+            &lt;p id=&quot;diff&quot;&gt;
+                I&#39;d like to treat this particular element differently.
+            &lt;/p&gt;
+        </pre>
+        <p>
+            In this code above, I have created a class <span class="inline-code">code</span>, to assign as an attribute
+            to my paragraph containing some Java code. This way, in my CSS file, I can create some rules to assign to
+            this paragraph, and also any other paragraph which assigns the class <span class="inline-code">code</span>.
+            These might be rules such as: creating a black background and using white monospace font, as I have done
+            myself on this site to display snippets of block code.
+        </p>
+        <p>
+            In the second element, I have assigned an ID <span class="inline-code">diff</span> as an attribute to my
+            paragraph. The key difference between an ID and a class, is that an ID can only be used once per HTML file.
+            So in this example, this paragraph just happens to be one paragraph in my HTML file which I would like to
+            treat differently with CSS or JavaScript, and the rules for styling it will only be used once. If I was to
+            want to use these rules to style multiple different elements on one HTML page, then I would instead use a
+            class.
+        </p>
+    </div>
+    <div>
+        <h2>In Action</h2>
+        <p>
+            To give a better idea of how HTML markup translates onto the page that is seen, here is an example. First,
+            the HTML markup which I am going to display:
+        </p>
+        <pre class="code">
+            &lt;h1&gt;This is a big heading&lt;/h1&gt;
+            &lt;p&gt;This is a paragraph&lt;/p&gt;
+            &lt;h2&gt;This is a smaller heading&lt;/h2&gt;
+            &lt;img src="rubber-duck.png" alt="duck" title="rubber duck"/&gt;
+            &lt;p&gt;This is another paragraph&lt;/p&gt;
+            &lt;a href="http://w3schools.com"&gt;This is a link&lt;/a&gt;
+        </pre>
+        <p>...and now, how this looks on an actual HTML page (after the default styling of this site is applied):</p>
+            <h1>This is a big heading</h1>
+            <p>This is a paragraph</p>
+            <h2>This is a smaller heading</h2>
+            <img src="rubber-duck.png" alt="duck" title="rubber duck"/>
+            <p>This is another paragraph</p>
+            <a href="http://w3schools.com">This is a link</a>
+    </div>
+    <div>
+        <h2>Summary</h2>
+        <p>
+            This page has really only given a glimpse into the world of HTML, but hopefully it should be enough to
+            highlight the principles that underlie it and offer enough information for you to begin experimenting
+            with writing your own HTML code. Please take a look at the other sections of the site to learn about
+            the basics of CSS and JavaScript and improve your understanding of how the three technologies work
+            together. If you'd like to learn about HTML in more depth see
+            <a class="ext-link" href="http://www.w3schools.com/html/default.asp">the tutorials at w3schools.</a>
+            Make sure to validate your HTML code to the version which you are using
+            <a class="ext-link" href="http://validator.w3.org/">here.</a>
+        </p>
+        <br/>
+    </div>
+    <hr/>
+    <div class="footer">
+        <h4>
+            Website designed and created by Ollie McNally for CSC1026 -
+            see <a href="http://www.ncl.ac.uk/computing/study/module/CSC1026">ncl.ac.uk - CSC1026</a>
+        </h4>
+    </div>
+</body>
+</html>

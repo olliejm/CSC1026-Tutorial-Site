@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>The 'Three Pillars' of Web Development</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h1 id="index-title">The 'Three Pillars' of Web Development</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li class="pull-right" id="index-active">
+                <a href="index.xhtml">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="content.xhtml" id="nav-content" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Content
+                </a>
+            </li>
+            <li>
+                <a href="presentation.xhtml" id="nav-presentation" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Presentation
+                </a>
+            </li>
+            <li>
+                <a href="behaviour.xhtml" id="nav-behaviour" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Behaviour
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>Introduction</h2>
+        <p>
+            This website intends to introduce the key concepts behind web development. Namely, the 'three pillars'
+            that go into construction of any website: content, presentation, and behaviour; and the technologies
+            through which these are achieved: HTML, CSS, and JavaScript, respectively. The content of this site aims
+            to give a brief overview of what each of these technologies is, their individual contributions to a
+            completed website, and an overview of how the mark-up / code itself is written and the functionality it
+            adds.
+        </p>
+    </div>
+    <div class="center">
+        <img src="three-pillars.png" alt="Three Pillars" title="source: planet-source-code.com"/>
+    </div>
+    <div class="aligned" id="content">
+        <h3><a href="content.xhtml">Content - HTML</a></h3>
+        <p>
+            The content of a website is achieved through HTML (hypertext markup language) files. These are where
+            your site's content is 'marked up' using 'tags' and 'attributes' which adhere to the HTML standard.
+        </p>
+    </div>
+    <div class="aligned" id="presentation">
+        <h3><a href="presentation.xhtml">Presentation - CSS</a></h3>
+        <p>
+            The presentation of a website is achieved through CSS (cascading style sheets). These allow you to assign
+            attributes like font, backgrounds, colours, and positioning to elements of your HTML content file.
+        </p>
+    </div>
+    <div class="aligned" id="behaviour">
+        <h3><a href="behaviour.xhtml">Behaviour - JavaScript</a></h3>
+        <p>
+            The behaviour of a website is achieved via JavaScript. It is a powerful scripting language which allows you
+            to define functions with which you can manipulate your HTML and CSS code.
+        </p>
+    </div>
+    <hr/>
+    <div class="footer">
+        <h4>
+            Website designed and created by Ollie McNally for CSC1026 -
+            see <a href="http://www.ncl.ac.uk/computing/study/module/CSC1026">ncl.ac.uk - CSC1026</a>
+        </h4>
+    </div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Behaviour - JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="functions.js" type="text/javascript"></script>
+</head>
+<body>
+    <div>
+        <h1 id="behaviour-title">The 'Three Pillars' of Web Development</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li class="pull-right">
+                <a href="index.xhtml">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="content.xhtml" id="nav-content" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Content
+                </a>
+            </li>
+            <li>
+                <a href="presentation.xhtml" id="nav-presentation" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Presentation
+                </a>
+            </li>
+            <li id="behaviour-active">
+                <a href="behaviour.xhtml" id="nav-behaviour" onmouseover="changeTitle(this.id)"
+                   onmouseout="resetTitle(this.id)">
+                    Behaviour
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>What is JavaScript?</h2>
+        <p>
+            JavaScript is a powerful scripting language which can be used to provide functionality to a web site.
+            Its full list of applications and the complexity of operations which JavaScript functions can perform
+            will not be dove into in too much detail here, but I aim to give a brief overview of how it works on a
+            basic level. JavaScript is used to implement things like mouse-over and on-click events, forms and
+            submissions, and database calls.
+        </p>
+    </div>
+    <div>
+        <h2>How does it work?</h2>
+        <p>
+            In a JavaScript file, you can define functions which perform mathematical operations, much as you would
+            expect from any other programming language. The real power of JavaScript comes from features such as the
+            HTML DOM (document object model), which allows JavaScript functions to manipulate HTML elements. Firstly
+            though, here is an example of a simple JavaScript function which performs some arithmetic:
+        </p>
+        <pre class="code">
+            function add(x, y) {
+                var z = x + y;
+                console.log(z);
+            }
+        </pre>
+        <p>
+            This function simply takes two numbers, x and y, and adds them together, outputting the result to the
+            JavaScript console. Anything sent to the JavaScript console does not appear on the website, but its
+            contents are usually visible by enabling the developer view on your browser. Now, let's look at some more
+            useful functionality achieved by using the DOM, mentioned above, to manipulate some HTML content. The
+            DOM is a method of treating your HTML document in a somewhat 'object-oriented' manner, as you may be
+            familiar with from other programming languages.
+        </p>
+        <pre class="code">
+            function changeMe(id) {
+                document.getElementById(id).innerHTML = "New contents";
+            }
+        </pre>
+        <p>
+            This can be coupled with the following HTML markup:
+        </p>
+        <pre class="code">
+            &lt;p id="changeable" onclick="changeMe(this.id)"&gt;Old contents&lt;/p&gt;
+        </pre>
+        <p>
+            Here we have used one of HTML's JavaScript related attributes, <span class="inline-code">onclick</span>,
+            to tell the browser that when this element is clicked, perform the JavaScript function
+            <span class="inline-code">changeMe(id)</span>, passing the function the ID of the current element, which
+            is achieved by the <span class="inline-code">this.id</span> statement. The function will then grab the
+            element which holds the given ID (<span class="inline-code">getElementById(id)</span>), and then use
+            the <span class="inline-code">.innerHTML</span> modifier to change the HTML contained within that element
+            to "New contents". There are many JavaScript-specific attributes in HTML which can execute JavaScript code
+            when certain actions are performed, examples of these would be <span class="inline-code">onmouseover</span>
+            and <span class="inline-code">onmouseout</span>; these will perform functions when the pointer goes over
+            an element, and when it is moved away again, respectively.
+        </p>
+        <p>
+            Another feature of worthwhile mention is objects in JavaScript, which work slightly differently to objects
+            in many other programming languages like Java or C++, which are class-based. In JavaScript, an object
+            can be defined in the following way, similarly to a variable (objects in JavaScript are also variables):
+        </p>
+        <pre class="code">
+            var person = {
+                name: "Joe Bloggs",
+                age: 21,
+                gender: "Male",
+            };
+        </pre>
+        <p>
+            We can then access the properties of this object in one of the following ways:
+        </p>
+        <pre class="code">
+            person.name;
+
+            person["name"];
+        </pre>
+        <p>
+            Obviously there is an incredible amount more to JavaScript, but as far as the basics go, this should cover
+            the essential ideas which differ from other languages (loops, arrays, scope, etc, all function similarly
+            to other languages).
+        </p>
+    </div>
+    <div>
+        <h2>In Action</h2>
+        <p>
+            To give a better idea of how JavaScript functions work when embedded into a site, here's some examples.
+            First, I will paste the code, and then the resulting implementation will appear beneath.
+        </p>
+        <pre class="code">
+            var sum;
+            var prev = 2;
+
+            function add(id) {
+                sum = prev + prev;
+                document.getElementById(id).innerHTML =
+                    prev + " + " + prev + " = " + sum;
+                prev = sum;
+            }
+
+            function reset(id) {
+                document.getElementById(id).innerHTML =
+                    prev + " + " + prev + " = ?";
+            }
+        </pre>
+        <pre class="code">
+            &lt;p id="changeable" onmouseover="add(this.id)"
+            onmouseout="reset(this.id)"&gt;
+                2 + 2 = ?
+            &lt;/p&gt;
+        </pre>
+        <p>
+            Now try hovering over the block below. The sum, which makes use of global (declared outside of a function)
+            variables, begins at 2 + 2, then when the mouse moves away the result will be added to itself to create the
+            next sum, and so on; so the result doubles each time. Because global variables will not reset until the
+            page is refreshed, this can go on forever provided you stay on the page.
+        </p>
+        <p id="changeable" onmouseover="add(this.id)" onmouseout="reset(this.id)">
+            2 + 2 = ?
+        </p>
+        <p>
+            As an additional example, here is some JavaScript code which should display the current date and time when
+            clicked, using an in-built JavaScript constructor for obtaining the current date:
+        </p>
+        <pre class="code">
+            function displayDate(id) {
+                document.getElementById(id).innerHTML = String(new Date());
+            }
+        </pre>
+        <pre class="code">
+            &lt;p id="date-display" onclick="displayDate(this.id)"&gt;
+                Click me!
+            &lt;/p&gt;
+        </pre>
+        <p>
+            Now clicking the block below should display the current date and time (clicking again will update it):
+        </p>
+        <p id="date-display" onclick="displayDate(this.id)">
+            Click me!
+        </p>
+        <p>
+            Finally, an HTML form, the contents of which are processed by a JavaScript function, checked, returned and
+            displayed. Firstly, the JavaScript and HTML involved:
+        </p>
+        <pre class="code">
+            function processForm() {
+                var name = document.getElementById("name").value;
+                var age = document.getElementById("age").value;
+                var gender = document.getElementById("gender").value;
+
+                if (name == null || name == ""
+                    || age == null || age == ""
+                    || gender == null || gender == "") {
+                    alert("Must fill in all fields");
+                    return false;
+                }
+
+                document.getElementById("form-output").innerHTML =
+                    name + ", " + age + ", " + gender + ".";
+            }
+        </pre>
+        <pre class="code">
+            &lt;p id=&quot;form&quot;&gt;
+                Full Name:&lt;br/&gt;
+                &lt;input type=&quot;text&quot; title=&quot;name&quot; id=&quot;name&quot;/&gt;&lt;br/&gt;
+                Age:&lt;br/&gt;
+                &lt;input type=&quot;text&quot; title=&quot;age&quot; id=&quot;age&quot;/&gt;&lt;br/&gt;
+                Gender:&lt;br/&gt;
+                &lt;input type=&quot;text&quot; title=&quot;gender&quot; id=&quot;gender&quot;/&gt;&lt;br/&gt;
+                &lt;input type=&quot;submit&quot; title=&quot;submit&quot; onclick=&quot;processForm()&quot;/&gt;
+            &lt;/p&gt;
+        </pre>
+        <p>
+            This code creates a form with three input fields, and a submit button, where the
+            <span class="inline-code">onclick</span> action of the submit button will run the JavaScript function
+            <span class="inline-code">processForm()</span>. It will verify fields are filled and if not, send an alert
+            pop-up to the browser; otherwise it will fill the <span class="inline-code">form-output</span> element
+            with the data entered into the form. To test it out, enter your name, age and gender here:
+        </p>
+        <p id="form">
+            Full Name:<br/>
+            <input type="text" title="name" id="name"/><br/>
+            Age:<br/>
+            <input type="text" title="age" id="age"/><br/>
+            Gender:<br/>
+            <input type="text" title="gender" id="gender"/><br/>
+            <input type="submit" title="submit" onclick="processForm()"/>
+        </p>
+        <p>
+            Now see your details processed and printed below using JavaScript:
+        </p>
+        <p id="form-output">
+            Your details will print here.
+        </p>
+    </div>
+    <div>
+        <h2>Summary</h2>
+        <p>
+            Now, the introduction to JavaScript on this page has been extremely brief, even compared to the other pages
+            on this site, simply because JavaScript is such a powerful and complex web development tool. Hopefully
+            this page will have given you enough information to begin playing with creating your own JavaScript
+            functions to manipulate your HTML markup. If you would like to learn more about JavaScript to a much higher
+            degree of depth, see
+            <a class="ext-link" href="http://www.w3schools.com/js/default.asp">the tutorials at w3schools.</a>
+            Make sure to validate your JavaScript code <a class="ext-link" href="http://jslint.com/">here.</a>
+        </p>
+    </div>
+    <hr/>
+    <div class="footer">
+        <h4>
+            Website designed and created by Ollie McNally for CSC1026 -
+            see <a href="http://www.ncl.ac.uk/computing/study/module/CSC1026">ncl.ac.uk - CSC1026</a>
+        </h4>
+    </div>
+</body>
+</html>
